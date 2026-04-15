@@ -19,12 +19,16 @@ This code documents the analysis in the publication. They are named in order of 
 03-spades.nf
 
 	Creating SPades assemblies from the mapped reads
+
+04-run_prodigal.sh
+
+	Create translated genome files from the MAGs produced above and the SAGs
 	
-04-create_mmseqs_clusters.txt
+05-create_mmseqs_clusters.txt
 
-	Creating gene clusters from the SAGs and MAGs using mmseqs
+	Creating gene clusters from the prodigal files from the SAGs and MAGs using mmseqs
 
-05-make_hyphy_files.nf
+06-make_hyphy_files.nf
 
 	Takes the gene cluster amino acid and nucelotide fasta files, creates codon aware nucleotide alignments,
 	gene trees with iqtree and runs evolutionary tests using several tools in the HyPhy package
