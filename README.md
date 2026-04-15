@@ -2,36 +2,33 @@
 
 ### 00-nf-mag-process-reads.sh
 
-	Quality control raw reads downloaded from the Marine Metagenome DB downloaded from ERR/SRA
-	using the SOP of nf-core/mag
+Quality control raw reads downloaded from the Marine Metagenome DB downloaded from ERR/SRA using the SOP of nf-core/mag
 	
 ### 01-make-bowtie2-bams.nf
 
-	Map the QC reads to our highest quality SAG in the Aerophobota AE-B3B sp005223085: AM-917-D13
-	
-	Data used to make Figure 1B and assess which samples to analyze downstream
+Map the QC reads to our highest quality SAG in the Aerophobota AE-B3B sp005223085: AM-917-D13
+Data used to make Figure 1B and assess which samples to analyze downstream
 	
 ### 02-make_bowtie2-95_allSAGs_for_spades.nf
 
-	In order to capture as many reads corresponding to this species as possible, we remapped
-	the same reads to a concatenated fasta of all SAGs from the species cluster
+In order to capture as many reads corresponding to this species as possible, we remapped
+the same reads to a concatenated fasta of all SAGs from the species cluster
 	
 ### 03-spades.nf
 
-	Creating SPades assemblies from the mapped reads
+Creating SPades assemblies from the mapped reads
 
 ### 04-run_prodigal.sh
 
-	Create translated genome files from the MAGs produced above and the SAGs
+Create translated genome files from the MAGs produced above and the SAGs
 	
 ### 05-create_mmseqs_clusters.txt
 
-	Creating gene clusters from the prodigal files from the SAGs and MAGs using mmseqs
+Creating gene clusters from the prodigal files from the SAGs and MAGs using mmseqs
 
 ### 06-make_hyphy_files.nf
 
-	Takes the gene cluster amino acid and nucelotide fasta files, creates codon aware nucleotide alignments,
-	gene trees with iqtree and runs evolutionary tests using several tools in the HyPhy package
+Takes the gene cluster amino acid and nucelotide fasta files, creates codon aware nucleotide alignments, gene trees with iqtree and runs evolutionary tests using several tools in the HyPhy package
 
 ## Metadata files
 
