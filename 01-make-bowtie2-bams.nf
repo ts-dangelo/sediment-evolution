@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 nextflow.enable.dsl=2
 
-DIR_input  = "/home/tdangelo/epc/mmdb_analysis/qc_reads/" ## reads from 00
+DIR_input  = "/home/tdangelo/epc/mmdb_analysis/qc_reads/" ## reads from 00-nf-mag-process-reads.sh
 DIR_output = "/home/tdangelo/epc/mmdb_analysis/bams-bowtie2-to-AM-917-D13"
 BT2_INDEX  = "/home/tdangelo/epc/mmdb_analysis/bt2_index" ## bowtie2 index of SAG AM-917-D13
 
