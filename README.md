@@ -30,11 +30,27 @@ Creating gene clusters from the prodigal files from the SAGs and MAGs using mmse
 
 Takes the gene cluster amino acid and nucelotide fasta files, creates codon aware nucleotide alignments, gene trees with iqtree and runs evolutionary tests using several tools in the HyPhy package
 
+## Accessory Scripts
+
+### samtools_depth_calc.sh
+using samtools depth to calculate mean depth and coverage to filter MMDB samples
+
+### filter_95_bam.py
+use pysam to parse MD tags in bam file to filter out reads ~<95% identity from MMDB reads maps to SAGs to improve assembly quality
+
+### copy_sc_gene_clusters.py
+identify gene clusters that are single-copy
+
+### make_ffns.py
+make gene cluster nucleotide fasta files using amino acid fasta file headers from mmseqs
+
 ## Metadata files
+
+### bt2_95id_10x-AM-917-D13-mean_coverage_samples.txt: 
+Samples from MMDB_samplex that had greater than 10X coverage to SAG AM-917-D13. These samples were focused on for read-mapping and binning analysese. calculations perfomed by samtools_depth_calc.sh
 
 ### MMDB_samples.txt: 
 Marine Metagenome Database metadatafile describing the samples downloaded (displayed in Figure 1#)
 
-### bt2_95id_10x-AM-917-D13-mean_coverage_samples.txt: 
-Samples from MMDB_samplex that had greater than 10X coverage to SAG AM-917-D13. These samples were focused on for read-mappiung and binning analysese.
-	calculations perfomed by samtools_depth_calc.sh
+### samplesheet.csv
+Sample sheet input for running nf-core/mag
