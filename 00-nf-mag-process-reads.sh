@@ -6,7 +6,7 @@ nextflow run nf-core/mag \
     -resume \
     -profile charlie \
     --input samplesheet.csv \
-    --outdir processes-reads \
+    --outdir processed_reads \
     --skip_gtdb \
     --skip_spades \
     --skip_megahit \
@@ -14,3 +14,6 @@ nextflow run nf-core/mag \
     --skip_prokka \
     --skip_binning \
     -c nextflow.mod.config
+
+
+## use find to pull the reads from the nf work dir, rename
