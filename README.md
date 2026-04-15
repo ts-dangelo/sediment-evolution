@@ -1,11 +1,11 @@
-This code documents the analysis in the publication. They are named in order of operation.
+#This code documents the analysis in the publication. They are named in order of operation.
 
-00-nf-mag-process-reads.sh
+##00-nf-mag-process-reads.sh
 
 	Quality control raw reads downloaded from the Marine Metagenome DB downloaded from ERR/SRA
 	using the SOP of nf-core/mag
 	
-01-make-bowtie2-bams.nf
+##01-make-bowtie2-bams.nf
 
 	Map the QC reads to our highest quality SAG in the Aerophobota AE-B3B sp005223085: AM-917-D13
 	
