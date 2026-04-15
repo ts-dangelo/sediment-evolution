@@ -6,9 +6,9 @@ params.num_inputs = 2
 
 params.DIR_input     = "/home/tdangelo/epc/mmdb_analysis/qc_reads/"
 params.DIR_output    = "/home/tdangelo/epc/mmdb_analysis/bams-bowtie2-to-all_sags_concat"
-params.GENOME_INDEX  = "/home/tdangelo/epc/mmdb_analysis/all-sags-input/all-misag-sags-concat"
-params.sample_file   = "/home/tdangelo/epc/mmdb_analysis/bt2_95id_10x-AM-917-D13-mean_coverage_samples.txt"
-params.filter_script = "/home/tdangelo/epc/code/filter_95_bam.py"
+params.GENOME_INDEX  = "/home/tdangelo/epc/mmdb_analysis/all-sags-input/all-misag-sags-concat" // All SAG assemblies that met MISAG Medium standards concatenated together
+params.sample_file   = "/home/tdangelo/epc/mmdb_analysis/bt2_95id_10x-AM-917-D13-mean_coverage_samples.txt" // List of Marine Metagenome DB read samples that have a mean coverage of 10x to SAG AM-917-D13 
+params.filter_script = "/home/tdangelo/epc/code/filter_95_bam.py" // pysam code to filter bams 
 
 // Create output directories at startup
 new File("${params.DIR_output}").mkdirs()
