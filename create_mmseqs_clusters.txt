@@ -1,0 +1,10 @@
+cat aero_misag_gene_faas/* > all_genes.faa
+cd mmseqs
+
+mmseqs createdb ../all_genes.faa aero_protein.db
+mmseqs cluster aero_protein.db clusterRes tmp --min-seq-id 0.9 -c 0.8 --cov-mode 0
+mmseqs createtsv aero_protein.db aero_protein.db clusterRes cluster_results.tsv
+
+python3 create_mmseqs_clusters.py --clusters cluster_results.tsv --fasta ../all_genes.faa --min_size 10
+python3 copy_sc_gene_clusters.py mmseqs/gc_faas/ aero_misag_gene_faas_sc/
+python3 make_ffns.py
