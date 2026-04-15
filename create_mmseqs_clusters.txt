@@ -1,4 +1,6 @@
-cat aero_misag_gene_faas/* > all_genes.faa
+
+
+cat aero_misag_gene_faas/* > all_genes.faa # take all the fasta amino acid files from prodigal into one file
 cd mmseqs
 
 mmseqs createdb ../all_genes.faa aero_protein.db
