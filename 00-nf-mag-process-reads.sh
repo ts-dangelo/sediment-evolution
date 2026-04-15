@@ -12,8 +12,7 @@ nextflow run nf-core/mag \
     --skip_megahit \
     --skip_prodigal \
     --skip_prokka \
-    --skip_binning \
-    -c nextflow.mod.config
+    --skip_binning
 
 
 ## pull the reads from the nf work dir and rename
