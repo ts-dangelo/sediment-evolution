@@ -22,7 +22,7 @@ Creating SPades assemblies from the mapped reads
 
 Create translated genome files from the MAGs produced above and the SAGs
 	
-### 05-create_mmseqs_clusters.txt
+### 05-create_mmseqs_clusters.sh
 
 Creating gene clusters from the prodigal files from the SAGs and MAGs using mmseqs
 
