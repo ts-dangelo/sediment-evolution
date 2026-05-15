@@ -54,3 +54,6 @@ Marine Metagenome Database metadatafile describing the samples downloaded (displ
 
 ### samplesheet.csv
 Sample sheet input for running nf-core/mag
+
+### software_version_info.txt
+Software versions for all of the packages contained in singularity images used in the nextflow files
