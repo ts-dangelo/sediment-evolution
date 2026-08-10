@@ -1,4 +1,6 @@
-## This code documents the analysis in the publication. They are named in order of operation.
+# This code documents the analysis in the publication by providing the nextflow scripts used to produce the data. They are named by the order of operation for producing the data (00-06). Accessory scripts used for other data processing steps are provided below. 
+
+## Nextflow scripts for data processing
 
 ### 00-nf-mag-process-reads.sh
 
