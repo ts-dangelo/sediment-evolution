@@ -1,3 +1,5 @@
+Packages in bowtie2.sif 
+
 # packages in environment at /opt/conda/envs/bowtie2_env:
 #
 # Name                       Version          Build                 Channel
@@ -92,6 +94,9 @@ xorg-libxt                   1.3.1            hb9d3cd8_0            conda-forge
 xorg-libxtst                 1.2.5            hb9d3cd8_3            conda-forge
 zlib                         1.3.1            hb9d3cd8_2            conda-forge
 zstd                         1.5.7            hb78ec9c_6            conda-forge
+
+Packages in hyphy.sif
+
 # packages in environment at /home/tdangelo/.conda/envs/hyphy:
 #
 # Name                     Version          Build            Channel
