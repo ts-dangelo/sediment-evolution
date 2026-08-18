@@ -49,6 +49,9 @@ make gene cluster nucleotide fasta files using amino acid fasta file headers fro
 ### fixation_index.py
 code to produce the fixation index of diversifying alleles 
 
+### calculate_branch_lengths.py
+code to calculate branch lengths of gene cluster trees 
+
 ## Metadata files
 
 ### bt2_95id_10x-AM-917-D13-mean_coverage_samples.txt: 
