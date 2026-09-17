@@ -96,7 +96,7 @@ def calculate_shannon_evenness(amino_acids):
     
     return evenness
 
-def analyze_diversifying_codons(df, lib_to_bioproject, fasta_dir, min_bioprojects=4):
+def analyze_diversifying_codons(df, lib_to_bioproject, fasta_dir, min_bioprojects=3):
     """
     Analyze codons under diversifying selection
     Only includes positions where sequences come from at least min_bioprojects bioprojects
@@ -178,8 +178,8 @@ def analyze_diversifying_codons(df, lib_to_bioproject, fasta_dir, min_bioproject
     return pd.DataFrame(results)
 
 
-fasta_dir = "/directory/with/single/copy/gene/cluster/faa/files'
-results_df = analyze_diversifying_codons(fel_annots_df, lib_to_bioproject, fasta_dir, min_bioprojects=1) # data plotted is min_bioprojects=3
+fasta_dir = "/directory/with/single/copy/gene/alignment/files'
+results_df = analyze_diversifying_codons(fel_annots_df, lib_to_bioproject, fasta_dir, min_bioprojects=3) # data plotted is min_bioprojects=3
 # lib_to_bioproject is a dictionary linking fasta header names to Bioprojects
 # fel_annots_df is a dataframe of the Fixed Effects Likelihood results with the associated annotation data 
 results_df.to_csv("diversifying_codon_statistics-weighted-All.csv")
