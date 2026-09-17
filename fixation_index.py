@@ -45,7 +45,7 @@ def calculate_fst(aa_by_bioproject):
     for aas in aa_by_bioproject.values():
         all_aas.update(aas)
 
-    # Calculate total frequencies (across all populations)
+    # Calculate total frequencies (across all projects)
     total_counts = Counter()
     total_n = 0
     for aas in aa_by_bioproject.values():
@@ -76,7 +76,7 @@ def calculate_fst(aa_by_bioproject):
     return fst
 
 def calculate_shannon_evenness(amino_acids):
-    """Calculate Shannon evenness - Not used in the publication"""
+    """Calculate Shannon evenness - Explored during data analysis but not used in the publication"""
     if len(amino_acids) == 0:
         return None
     
@@ -84,13 +84,13 @@ def calculate_shannon_evenness(amino_acids):
     n_species = len(counts)
     
     if n_species <= 1:
-        return 1.0  # Perfect evenness when only one species
+        return 1.0  # Perfect evenness when only one allele
     
     # Calculate Shannon entropy
     proportions = np.array(list(counts.values())) / len(amino_acids)
     shannon_entropy = entropy(proportions, base=np.e)
     
-    # Normalize by max possible entropy (log of number of species)
+    # Normalize by max possible entropy (log of number of alleles)
     max_entropy = np.log(n_species)
     evenness = shannon_entropy / max_entropy if max_entropy > 0 else 0
     
@@ -111,56 +111,46 @@ def analyze_diversifying_codons(df, lib_to_bioproject, fasta_dir, min_bioproject
         gene_cluster = row['gene_cluster']
         codon_pos = int(row['codon'])
         
-        # Construct fasta filename
         fasta_file = os.path.join(fasta_dir, f"{gene_cluster}.aln")
         
         if not os.path.exists(fasta_file):
             print(f"Warning: {fasta_file} not found")
             continue
         
-        # Read sequences
         sequences = read_fasta_to_dict(fasta_file)
         
-        # Extract amino acids at this position for each bioproject
         aa_by_bioproject = {}
         all_amino_acids = []
         
         for lib_id, seq in sequences.items():
-            # Get bioproject for this library
             bioproject = lib_to_bioproject.get(lib_id)
-            if not pd.notna(bioproject):  # ← CHANGED: Now filters out both None and nan
+            if not pd.notna(bioproject):  
                 continue
             
             # Get amino acid at position
             aa = get_aa_at_position(seq, codon_pos)
-            if aa is None:  # Skip gaps and invalid positions
+            if aa is None:  
                 continue
             
-            # Store by bioproject
             if bioproject not in aa_by_bioproject:
                 aa_by_bioproject[bioproject] = []
             aa_by_bioproject[bioproject].append(aa)
             all_amino_acids.append(aa)
         
-        # Filter: require at least min_bioprojects
         if len(aa_by_bioproject) < min_bioprojects:
             continue
         
         if len(all_amino_acids) == 0:
             continue
         
-        # Calculate statistics
         fst = calculate_fst(aa_by_bioproject)
         
-        # Unique residues
         unique_residues = len(set(all_amino_acids))
         
-        # Most frequent residue percentage
         aa_counts = Counter(all_amino_acids)
         most_common_aa, most_common_count = aa_counts.most_common(1)[0]
         most_frequent_pct = (most_common_count / len(all_amino_acids)) * 100
         
-        # Shannon evenness
         shannon_even = calculate_shannon_evenness(all_amino_acids)
         
         results.append({
