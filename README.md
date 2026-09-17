@@ -1,4 +1,4 @@
-## This code documents the analysis in the publication by providing the nextflow scripts used to produce the data. They are named by the order of operation for producing the data (00-06). Accessory scripts used for other data processing steps are provided below. The software information to produce identical versions of the two SIF files used in the nextflow scripts is described in the file software_version_info.txt. This workflow was designed and run on an HPCC and cumulatively took many days worth of run time. Installing and running on a desktop computer is not suggested. Running will require installing required software on a suitable HPCC cluster environment and calling said software in the manner in the provided scripts.  Running 00-06 will produce all underlying data used for display in the publication. 
+## This code documents the analysis in the publication by providing the nextflow scripts used to produce the data. They are named by the order of operation for producing the data (00-06). Accessory scripts used for other data processing steps are provided below. The software information to produce identical versions of the two SIF files used in the nextflow scripts is described in the file software_version_info.txt. This workflow was designed and run on an HPCC and cumulatively took many days worth of run time. Installing and running on a desktop computer is not suggested. Running will require installing required software on a suitable HPCC cluster environment and calling said software in the manner in the provided scripts.  Running 00-06 will produce all underlying data used for display in the publication. To demo, one could download GCA_058260875.1 (our longest SAG called AM-917-D13), pick a small number of samples from MMDB_samples.txt and download them from SRA/ENA and use them in the files below. 
 
 ## Nextflow scripts for data processing
 
@@ -8,7 +8,7 @@ Quality control raw reads downloaded from the Marine Metagenome DB downloaded fr
 	
 ### 01-make-bowtie2-bams.nf
 
-Map the QC reads to our highest quality SAG in the Aerophobota AE-B3B sp005223085: AM-917-D13
+Map the QC reads to our highest quality SAG in the Aerophobota AE-B3B sp005223085: AM-917-D13 (GCA_058260875.1)
 Data used to make Figure 1B and assess which samples to analyze downstream
 	
 ### 02-make_bowtie2-95_allSAGs_for_spades.nf
