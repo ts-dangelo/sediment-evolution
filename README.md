@@ -1,4 +1,4 @@
-## This code documents the analysis in the publication by providing the nextflow scripts used to produce the data. They are named by the order of operation for producing the data (00-06). Accessory scripts used for other data processing steps are provided below. The software information to produce identical versions of the two SIF files used in the nextflow scripts is described in the file software_version_info.txt
+## This code documents the analysis in the publication by providing the nextflow scripts used to produce the data. They are named by the order of operation for producing the data (00-06). Accessory scripts used for other data processing steps are provided below. The software information to produce identical versions of the two SIF files used in the nextflow scripts is described in the file software_version_info.txt. This workflow was designed and run on an HPCC and cumulatively took many days worth of run time. Installing and running on a desktop computer is not suggested. 
 
 ## Nextflow scripts for data processing
 
